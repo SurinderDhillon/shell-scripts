@@ -1,6 +1,6 @@
 <snippet>
   <content>
-# Shell Script
+# Shell Scripts
 Basic and Advanced shell scripts for every geek. You can fork it and add features as per your need or contribute to this only.
 
 # Installation & Usage
