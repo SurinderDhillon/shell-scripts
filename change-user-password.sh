@@ -1,5 +1,5 @@
 #!/bin/bash
-# Change password for a user configured for sFTP access
+# Change password for a user configured for SFTP access
 # Number of parameters passed is 2
 # First parameter: Username
 # Second parameter: password
