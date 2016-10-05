@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Pingy.sh created on 25th Feb 2014
-# Updated on 26th Nov 2014
-
 # Get the server ID set from Cron
 SERVER_ID=${1}
 
-# Get Total Memory stats (in MB)
+# Get Total Memory stats (MB)
 T=$(grep MemT /proc/meminfo | awk '{print $2}')
 MEM_TOTAL=$(( ${T} / 1024 ))
 
@@ -39,8 +36,8 @@ fi
 
 # POST data to URL
 # Make the URL
-URL="http://107.170.71.20/servers/${SERVER_ID}/status_update"
+URL="http://IP/servers/${SERVER_ID}/status_update"
 
-#http://scouturl.com/servers/1/status_update?ram_free=1231&ram_used=1231&load=0.123
-#curl --data "param1=value1&param2=value2" http://hostname/resource
+#http://URL.com/servers/ 
+#We can send data to app
 curl --data "ram_free=${MEM_FREE}&ram_used=${MEM_USED}&load=${CPU_LOAD}&db_lag=${DB_LAG}" ${URL}
