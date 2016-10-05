@@ -2,15 +2,10 @@
 # Delete a user which was created for sftp access.
 # Number of parameters passed is 1
 # First parameter: Username
-# 7th Apr 2016 - Modified paths to match new sftp server mounts
 
 # Enable logging
 LOG=/tmp/${0}.log
 echo -e "\nCreate FTP User script started. Date: $(date)" >> ${LOG}
-
-# Remove logs from previous execution
-# Commented for testing on Aug 14, 2015. Logs will be appended.
-#rm -f ${LOG}
 
 # Check for incorrect parameters passed
 if [ ! "$#" -eq 1 ]; then
