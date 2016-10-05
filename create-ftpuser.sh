@@ -3,16 +3,10 @@
 # Number of parameters passed: 2
 # First parameter: Username
 # Second parameter: Password
-# 7th Apr 2016 - Modified paths to match new sftp server mounts
 
 # Enable logging
-# Removed /tmp/ from the LOG file path below as it was a bug - Jagdeep Singh
 LOG=${0}.log
 echo -e "\nCreate FTP User script started. Date: $(date)" >> ${LOG}
-
-# Remove logs from previous execution
-# Commented for testing on Aug 14, 2015. Logs will be appended.
-#rm -f ${LOG}
 
 # Check for incorrect parameters passed to the script
 if [ ! "$#" -eq 2 ]; then 
