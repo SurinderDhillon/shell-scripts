@@ -44,9 +44,11 @@ if [ "$Grep_swap" == 0 ]; then
 fi
 
 ##  Asking to reboot
-read -r -p "Reboot now? (y/n)?" choice
-case "$choice" in
-  y|Y ) (reboot);;
-  n|N ) echo "quit";;
-  * ) echo "Please answer yes or no.";;
-esac
+while true; do
+        read -r -p "Reboot now? (y/n)?" choice
+        case "$choice" in
+                y|Y ) (reboot);;
+                n|N ) echo "quit" && break ;;
+                * ) echo "Please answer yes or no." && echo "" ;;
+        esac
+done
