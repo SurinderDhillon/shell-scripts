@@ -31,7 +31,7 @@ case "$choice" in
   * ) echo "invalid";;
 esac
 
-fallocate -l "$user_input\G" /swapfile
+fallocate -l "$user_input"\G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
@@ -48,5 +48,5 @@ read -r -p "Reboot now? (y/n)?" choice
 case "$choice" in
   y|Y ) (reboot);;
   n|N ) echo "quit";;
-  * ) echo "invalid";;
+  * ) echo "Please answer yes or no.";;
 esac
