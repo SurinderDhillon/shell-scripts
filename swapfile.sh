@@ -8,7 +8,8 @@ if [ "$Swap" -ge 1 ]; then
 fi
 
 ##  Check Disk Space
-Disk=$(df -h | grep -E 'vda|sda' | awk '{print $2}' | sed 's/G//')
+#Disk=$(df -h | grep -E 'vda|sda' | awk '{print $2}' | sed 's/G//')
+Disk=$(df -h | awk ' /'vda'|'sda'/ {print $2}' | head -1 | sed -E 's/G//')
 
 echo "Disk Size is $Disk"
 
