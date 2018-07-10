@@ -1,9 +1,17 @@
 #!/bin/bash
 
+if [ "$(whoami)" != "root" ]; then
+		echo "Please run script with sudo or root user. Quitting script.."
+        exit 0
+else
+	:
+fi
+
 ##  Check existing Swapfile
 Swap=$(free -m | grep Swap | awk '{print $2}')
 
 if [ "$Swap" -ge 1 ]; then
+	echo "Swapfile is already in use. Quitting script.."
 	exit 1
 fi
 
@@ -16,7 +24,7 @@ else
 fi
 
 ##  Creating swap
-echo "Give the size for swap: "
+echo "Specify the size for swap: "
 read -r user_input
 
 Deducted_disk=$(( Disk - user_input ))
@@ -31,7 +39,7 @@ read -r -p "Continue (y/n)?" choice
 case "$choice" in
   y|Y ) echo "Creating swapfile";;
   n|N ) echo "quit";;
-  * ) echo "invalid";;
+  * ) echo "Press Y|y or N|n";;
 esac
 
 fallocate -l "$user_input"\G /swapfile
